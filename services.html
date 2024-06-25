@@ -8,8 +8,65 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
     <style>
+      * {
+        font-family: "Roboto", sans-serif;
+      }
+      .hero-container {
+        position: relative;
+        height: 100vh; /* Full viewport height */
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background-image: url("./images/hero.jpg");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.75; /* Adjust opacity as needed */
+        z-index: -1; /* Ensure the overlay is behind the content */
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1; /* Ensure the content is above the overlay */
+      }
+      @media (max-width: 640px) {
+        .hero-text {
+          font-size: 2rem; /* Example of adjusting font size for smaller screens */
+        }
+      }
+
+      /* Navbar items layout on small devices */
+      @media (max-width: 640px) {
+        #navbar-dark {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        #navbar-dark a {
+          padding: 0.5rem 1rem;
+        }
+      }
+
       .button-section {
         background-color: rgba(
           255,
@@ -49,7 +106,7 @@
         background-color: #aa2c32;
       }
       .working-hours-section {
-        background-color: #f3f4f6; /* Light gray background color */
+        background-color: #f3f4f6; /* Light pink background color */
       }
 
       .working-hour {
@@ -57,10 +114,6 @@
         width: 60%;
         border-radius: 6.8rem;
         background-color: #6b7280;
-      }
-
-      .about-us-section {
-        background-color: #f3f4f6; /* Light gray background color */
       }
 
       .about-us-section .container {
@@ -77,23 +130,9 @@
         flex-basis: 50%;
       }
 
-      .about-us-section h2 {
-        font-size: 3rem;
-        font-weight: bold;
-        color: #333333; /* Dark text color */
-        margin-bottom: 1.5rem;
-      }
-
-      .about-us-section p {
-        font-size: 1.5rem;
-        color: #666666; /* Medium-dark text color */
-        margin-bottom: 2rem;
-      }
-
       .about-us-section img {
-        flex-basis: 50%;
-        border-radius: 10px; /* Rounded corners for the image */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        flex-basis: 40%;
+        width: 90%;
       }
 
       .rectangle {
@@ -112,7 +151,7 @@
         height: auto;
         overflow: hidden;
       }
-      .swiper-container{
+      .swiper-container {
         overflow: hidden;
       }
       .album .responsive-container-block {
@@ -131,30 +170,30 @@
         margin-left: auto;
         justify-content: flex-start;
       }
-      
+
       .album .responsive-container-block.bg {
         max-width: 1320px;
         margin: 0 0 0 0;
         justify-content: space-between;
       }
-      
+
       .album .img {
         width: 100%;
         margin: 0 0 20px 0;
       }
-      
+
       .album #i9rb {
         color: black;
       }
-      
+
       .album #ir6i {
         color: black;
       }
-      
+
       .album #ikz3b {
         color: black;
       }
-      
+
       .album .responsive-container-block.img-cont {
         flex-direction: column;
         max-width: 33.3%;
@@ -162,478 +201,561 @@
         margin: 0 0 0 0;
         height: 100%;
       }
-      
+
       .album #ipix {
         color: black;
       }
-      
+
       .album #ipzoh {
         color: black;
       }
-      
+
       .album #ig5q8 {
         color: black;
       }
-      
+
       .album #imtzl {
         color: black;
       }
-      
+
       .album #i53es {
         color: black;
       }
-      
+
       .album .img.img-big {
         height: 50%;
         margin: 0 0 16px 0;
       }
-      
+
       @media (max-width: 1024px) {
         .album .img {
           margin: 0 0 18px 0;
         }
       }
-      
+
       @media (max-width: 768px) {
         .album .img {
           max-width: 32.5%;
           margin: 0 0 0 0;
         }
-      
+
         .album .responsive-container-block.bg {
           flex-direction: column;
         }
-      
+
         .album .responsive-container-block.img-cont {
           max-width: 100%;
           flex-direction: row;
           justify-content: space-between;
         }
-      
+
         .album .img.img-big {
           max-width: 49%;
           margin: 0 0 0 0;
         }
       }
-      
+
       @media (max-width: 500px) {
         .album .img {
           max-width: 94%;
           margin: 0 0 25px 0;
         }
-      
+
         .album .responsive-container-block.img-cont {
           flex-direction: column;
           align-items: center;
           padding: 10px 10px 10px 10px;
         }
-      
+
         .album .img.img-big {
           max-width: 94%;
           margin: 0 0 25px 0;
         }
-      
+
         .album .img.img-last {
           margin: 0 0 5px 0;
         }
       }
 
+      .wk-desk-1 {
+        width: 8.333333%;
+      }
 
+      .wk-desk-2 {
+        width: 16.666667%;
+      }
 
-.wk-desk-1 {
-  width: 8.333333%;
-}
+      .wk-desk-3 {
+        width: 25%;
+      }
 
-.wk-desk-2 {
-  width: 16.666667%;
-}
+      .wk-desk-4 {
+        width: 33.333333%;
+      }
 
-.wk-desk-3 {
-  width: 25%;
-}
+      .wk-desk-5 {
+        width: 41.666667%;
+      }
 
-.wk-desk-4 {
-  width: 33.333333%;
-}
+      .wk-desk-6 {
+        width: 50%;
+      }
 
-.wk-desk-5 {
-  width: 41.666667%;
-}
+      .wk-desk-7 {
+        width: 58.333333%;
+      }
 
-.wk-desk-6 {
-  width: 50%;
-}
+      .wk-desk-8 {
+        width: 66.666667%;
+      }
 
-.wk-desk-7 {
-  width: 58.333333%;
-}
+      .wk-desk-9 {
+        width: 75%;
+      }
 
-.wk-desk-8 {
-  width: 66.666667%;
-}
+      .wk-desk-10 {
+        width: 83.333333%;
+      }
 
-.wk-desk-9 {
-  width: 75%;
-}
+      .wk-desk-11 {
+        width: 91.666667%;
+      }
 
-.wk-desk-10 {
-  width: 83.333333%;
-}
+      .wk-desk-12 {
+        width: 100%;
+      }
 
-.wk-desk-11 {
-  width: 91.666667%;
-}
+      @media (max-width: 1024px) {
+        .wk-ipadp-1 {
+          width: 8.333333%;
+        }
 
-.wk-desk-12 {
-  width: 100%;
-}
+        .wk-ipadp-2 {
+          width: 16.666667%;
+        }
 
-@media (max-width: 1024px) {
-  .wk-ipadp-1 {
-    width: 8.333333%;
-  }
+        .wk-ipadp-3 {
+          width: 25%;
+        }
 
-  .wk-ipadp-2 {
-    width: 16.666667%;
-  }
+        .wk-ipadp-4 {
+          width: 33.333333%;
+        }
 
-  .wk-ipadp-3 {
-    width: 25%;
-  }
+        .wk-ipadp-5 {
+          width: 41.666667%;
+        }
 
-  .wk-ipadp-4 {
-    width: 33.333333%;
-  }
+        .wk-ipadp-6 {
+          width: 50%;
+        }
 
-  .wk-ipadp-5 {
-    width: 41.666667%;
-  }
+        .wk-ipadp-7 {
+          width: 58.333333%;
+        }
 
-  .wk-ipadp-6 {
-    width: 50%;
-  }
+        .wk-ipadp-8 {
+          width: 66.666667%;
+        }
 
-  .wk-ipadp-7 {
-    width: 58.333333%;
-  }
+        .wk-ipadp-9 {
+          width: 75%;
+        }
 
-  .wk-ipadp-8 {
-    width: 66.666667%;
-  }
+        .wk-ipadp-10 {
+          width: 83.333333%;
+        }
 
-  .wk-ipadp-9 {
-    width: 75%;
-  }
+        .wk-ipadp-11 {
+          width: 91.666667%;
+        }
 
-  .wk-ipadp-10 {
-    width: 83.333333%;
-  }
+        .wk-ipadp-12 {
+          width: 100%;
+        }
+      }
 
-  .wk-ipadp-11 {
-    width: 91.666667%;
-  }
+      @media (max-width: 768px) {
+        .wk-tab-1 {
+          width: 8.333333%;
+        }
 
-  .wk-ipadp-12 {
-    width: 100%;
-  }
-}
+        .wk-tab-2 {
+          width: 16.666667%;
+        }
 
-@media (max-width: 768px) {
-  .wk-tab-1 {
-    width: 8.333333%;
-  }
+        .wk-tab-3 {
+          width: 25%;
+        }
 
-  .wk-tab-2 {
-    width: 16.666667%;
-  }
+        .wk-tab-4 {
+          width: 33.333333%;
+        }
 
-  .wk-tab-3 {
-    width: 25%;
-  }
+        .wk-tab-5 {
+          width: 41.666667%;
+        }
 
-  .wk-tab-4 {
-    width: 33.333333%;
-  }
+        .wk-tab-6 {
+          width: 50%;
+        }
 
-  .wk-tab-5 {
-    width: 41.666667%;
-  }
+        .wk-tab-7 {
+          width: 58.333333%;
+        }
 
-  .wk-tab-6 {
-    width: 50%;
-  }
+        .wk-tab-8 {
+          width: 66.666667%;
+        }
 
-  .wk-tab-7 {
-    width: 58.333333%;
-  }
+        .wk-tab-9 {
+          width: 75%;
+        }
 
-  .wk-tab-8 {
-    width: 66.666667%;
-  }
+        .wk-tab-10 {
+          width: 83.333333%;
+        }
 
-  .wk-tab-9 {
-    width: 75%;
-  }
+        .wk-tab-11 {
+          width: 91.666667%;
+        }
 
-  .wk-tab-10 {
-    width: 83.333333%;
-  }
+        .wk-tab-12 {
+          width: 100%;
+        }
+      }
 
-  .wk-tab-11 {
-    width: 91.666667%;
-  }
+      @media (max-width: 500px) {
+        .wk-mobile-1 {
+          width: 8.333333%;
+        }
 
-  .wk-tab-12 {
-    width: 100%;
-  }
-}
+        .wk-mobile-2 {
+          width: 16.666667%;
+        }
 
-@media (max-width: 500px) {
-  .wk-mobile-1 {
-    width: 8.333333%;
-  }
+        .wk-mobile-3 {
+          width: 25%;
+        }
 
-  .wk-mobile-2 {
-    width: 16.666667%;
-  }
+        .wk-mobile-4 {
+          width: 33.333333%;
+        }
 
-  .wk-mobile-3 {
-    width: 25%;
-  }
+        .wk-mobile-5 {
+          width: 41.666667%;
+        }
 
-  .wk-mobile-4 {
-    width: 33.333333%;
-  }
+        .wk-mobile-6 {
+          width: 50%;
+        }
 
-  .wk-mobile-5 {
-    width: 41.666667%;
-  }
+        .wk-mobile-7 {
+          width: 58.333333%;
+        }
 
-  .wk-mobile-6 {
-    width: 50%;
-  }
+        .wk-mobile-8 {
+          width: 66.666667%;
+        }
 
-  .wk-mobile-7 {
-    width: 58.333333%;
-  }
+        .wk-mobile-9 {
+          width: 75%;
+        }
 
-  .wk-mobile-8 {
-    width: 66.666667%;
-  }
+        .wk-mobile-10 {
+          width: 83.333333%;
+        }
 
-  .wk-mobile-9 {
-    width: 75%;
-  }
+        .wk-mobile-11 {
+          width: 91.666667%;
+        }
 
-  .wk-mobile-10 {
-    width: 83.333333%;
-  }
-
-  .wk-mobile-11 {
-    width: 91.666667%;
-  }
-
-  .wk-mobile-12 {
-    width: 100%;
-  }
-}
+        .wk-mobile-12 {
+          width: 100%;
+        }
+      }
     </style>
   </head>
-  <body class="text-white bg-gray-800">
-    <div class="relative h-screen overflow-hidden ">
-        <!-- Background overlay with reduced opacity -->
-        <div class="absolute inset-0 bg-gray-900 bg-center bg-no-repeat bg-cover opacity-25"  style="background-image: url(./images/back.jpg);"></div>
-    
-        <!-- Rotated div for working hours -->
-        <div class="absolute top-0 hidden h-full rotate-45 bg-black transform-gpu lg:block working-hour"></div>
-    
-        <!-- Rectangle 1 -->
-        <div class="absolute hidden rectangle lg:block" style="top: 15%; right: 10%; width: 300px; height: 440px;">
-          <img src="./images/img1.png" alt="Image 1">
-        </div>
-    
-        <!-- Rectangle 2 -->
-        <div class="absolute hidden rectangle lg:block" style="top: 60%; right: 20%; width: 300px; height: 300px;">
-          <img src="./images/img2.png" alt="Image 2">
-        </div>
-    
-        <!-- Rectangle 3 -->
-        <div class="absolute hidden rectangle lg:block" style="top: 40%; right: 30%; width: 300px; height: 200px;">
-          <img src="./images/img3.png" alt="Image 3">
-        </div>
-      </div>
+  <body class="text-white bg-background">
+    <div class="relative top-0 h-screen">
+      <div
+        class="absolute inset-0 bg-fixed bg-pink-900 bg-center bg-no-repeat bg-cover opacity-75"
+        style="background-image: url(./images/hero.jpg); height: 120vh"
+      ></div>
 
-    <!-- about us section  -->
-
-    <section class="py-20 about-us-section">
-        <div class="container flex flex-col items-center mx-auto md:flex-row md:space-x-8">
-          <!-- Left side (content) -->
-          <div class="content md:w-1/2">
-            <h2 class="mb-4 text-4xl font-bold">About Us</h2>
-            <p class="mb-6 text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis
-              lorem ut libero malesuada feugiat.
-            </p>
-          </div>
-          <!-- Right side (image) -->
-          <div class="relative mt-8 md:w-1/2 md:mt-0">
-            <img
-              src="./images/about-us.jpg"
-              alt="About Us"
-              class="object-cover w-full h-full rounded-lg"
-            />
-            <div class="absolute inset-0 bg-black rounded-lg opacity-25"></div>
-          </div>
+      <nav class="top-0 text-black md:flex md:items-center md:justify-between">
+        <div class="flex items-center justify-between">
+          <span class="text-2xl font-[Poppins] cursor-pointer">
+            Rosie Looks
+          </span>
+          <span class="block text-3xl cursor-pointer md:hidden">
+            <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
+          </span>
         </div>
-      </section>
+        <ul
+          class="md:flex md:items-center z-[-1] md:z-auto md:static absolute md:bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 md:bg-transparent sm:bg-white"
+        >
+          <li class="mx-4 my-6 md:my-0">
+            <a href="#" class="text-xl duration-500 hover:text-pink-500"
+              >HOME</a
+            >
+          </li>
+          <li class="mx-4 my-6 md:my-0">
+            <a href="#" class="text-xl duration-500 hover:text-pink-500"
+              >SERVICE</a
+            >
+          </li>
+          <li class="mx-4 my-6 md:my-0">
+            <a href="#" class="text-xl duration-500 hover:text-pink-500"
+              >ABOUT</a
+            >
+          </li>
+          <li class="mx-4 my-6 md:my-0">
+            <a href="#" class="text-xl duration-500 hover:text-pink-500"
+              >BLOG</a
+            >
+          </li>
+          <li class="mx-4 my-6 md:my-0">
+            <a href="#" class="text-xl duration-500 hover:text-pink-500"
+              >GALLERY</a
+            >
+          </li>
+          <li class="mx-4 my-6 md:my-0">
+            <a href="#" class="text-xl duration-500 hover:text-pink-500"
+              >CONTACT</a
+            >
+          </li>
+        </ul>
+      </nav>
 
-    <!-- services section -->
-    <div class="max-w-5xl px-4 py-12 mx-auto sm:px-6 lg:px-8">
-      <div class="text-center">
-        <h1 class="text-3xl font-bold">Our Services</h1>
-        <p class="mt-2 text-lg">
-          These are the services we provide in this salon
+      <div class="absolute w-full mt-5 top-1/3">
+        <p
+          class="text-5xl leading-normal tracking-wider text-center text-white"
+        >
+          Always Make Room for a Little <br />
+          Beauty in Your Life
         </p>
-      </div>
-
-      <div class="grid grid-cols-1 gap-8 mt-12 md:grid-cols-2 lg:grid-cols-4">
-        <!-- Service 1 -->
-        <div
-          class="relative overflow-hidden bg-white rounded-lg shadow-md group"
-        >
-          <img
-            src="./images/img1.png"
-            alt="Service 1"
-            class="object-cover w-full h-48 transition-transform group-hover:scale-105"
-          />
-          <div
-            class="absolute inset-0 flex items-center justify-center transition-opacity bg-black opacity-0 group-hover:opacity-50"
+        <div class="flex justify-center w-full my-12">
+          <button
+            class="px-5 py-2 text-black transition ease-in-out bg-white rounded duration-800 hover:bg-pink-300"
           >
-            <button
-              class="px-4 py-2 font-semibold text-gray-900 transition-colors duration-300 bg-white rounded-lg shadow-md hover:bg-gray-200"
-            >
-              Book Now
-            </button>
-          </div>
-          <div class="p-4">
-            <h3 class="mb-2 text-lg font-semibold text-gray-900">
-              Oil Massage
-            </h3>
-            <p class="mb-2 text-sm text-gray-700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
-              soluta?
-            </p>
-            <div class="flex items-center justify-between">
-              <span class="text-lg font-bold">$30</span>
-              <span class="text-sm text-green-500">Available</span>
-            </div>
-            <p class="mt-2 text-xs text-gray-500">Duration: 60 minutes</p>
-          </div>
+            BOOK APPOINTMENT
+          </button>
+          <button
+            class="px-5 py-2 ml-6 text-black transition ease-in-out border-2 border-white rounded duration-800 hover:bg-white"
+          >
+            VIEW SERVICE MENU
+          </button>
         </div>
 
-        <!-- Service 2 -->
-        <div
-          class="relative overflow-hidden bg-white rounded-lg shadow-md group"
-        >
-          <img
-            src="./images/img2.png"
-            alt="Service 2"
-            class="object-cover w-full h-48 transition-transform group-hover:scale-105"
-          />
-          <div
-            class="absolute inset-0 flex items-center justify-center transition-opacity bg-black opacity-0 group-hover:opacity-50"
-          >
-            <button
-              class="px-4 py-2 font-semibold text-gray-900 transition-colors duration-300 bg-white rounded-lg shadow-md hover:bg-gray-200"
-            >
-              Book Now
-            </button>
+        <div class="flex justify-between w-3/4 px-5 py-5 mx-auto my-16 mt-40">
+          <div>
+            <p>CONTACT</p>
+            <p>+977 9864120535</p>
+            <p>info@gmail.com</p>
           </div>
-          <div class="p-4">
-            <h3 class="mb-2 text-lg font-semibold text-gray-900">
-              Facial Treatment
-            </h3>
-            <p class="mb-2 text-sm text-gray-700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
-              soluta?
-            </p>
-            <div class="flex items-center justify-between">
-              <span class="text-lg font-bold">$50</span>
-              <span class="text-sm text-green-500">Available</span>
-            </div>
-            <p class="mt-2 text-xs text-gray-500">Duration: 90 minutes</p>
+          <div>
+            <p>HOURS</p>
+            <p>Mon to Fri: 7:30 am — 1:00 am</p>
+            <p>Sat: 9:00 am — 1:00 am</p>
+            <p>Sun: 9:00 am — 11:30 pm</p>
           </div>
-        </div>
-
-        <!-- Service 3 -->
-        <div
-          class="relative overflow-hidden bg-white rounded-lg shadow-md group"
-        >
-          <img
-            src="./images/img3.png"
-            alt="Service 3"
-            class="object-cover w-full h-48 transition-transform group-hover:scale-105"
-          />
-          <div
-            class="absolute inset-0 flex items-center justify-center transition-opacity bg-black opacity-0 group-hover:opacity-50"
-          >
-            <button
-              class="px-4 py-2 font-semibold text-gray-900 transition-colors duration-300 bg-white rounded-lg shadow-md hover:bg-gray-200"
-            >
-              Book Now
-            </button>
-          </div>
-          <div class="p-4">
-            <h3 class="mb-2 text-lg font-semibold text-gray-900">
-              Haircut & Styling
-            </h3>
-            <p class="mb-2 text-sm text-gray-700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
-              soluta?
-            </p>
-            <div class="flex items-center justify-between">
-              <span class="text-lg font-bold">$40</span>
-              <span class="text-sm text-green-500">Available</span>
-            </div>
-            <p class="mt-2 text-xs text-gray-500">Duration: 45 minutes</p>
-          </div>
-        </div>
-
-        <!-- Service 4 -->
-        <div
-          class="relative overflow-hidden bg-white rounded-lg shadow-md group"
-        >
-          <img
-            src="./images/img2.png"
-            alt="Service 4"
-            class="object-cover w-full h-48 transition-transform group-hover:scale-105"
-          />
-          <div
-            class="absolute inset-0 flex items-center justify-center transition-opacity bg-black opacity-0 group-hover:opacity-50"
-          >
-            <button
-              class="px-4 py-2 font-semibold text-gray-900 transition-colors duration-300 bg-white rounded-lg shadow-md hover:bg-gray-200"
-            >
-              Book Now
-            </button>
-          </div>
-          <div class="p-4">
-            <h3 class="mb-2 text-lg font-semibold text-gray-900">
-              Manicure & Pedicure
-            </h3>
-            <p class="mb-2 text-sm text-gray-700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
-              soluta?
-            </p>
-            <div class="flex items-center justify-between">
-              <span class="text-lg font-bold">$25</span>
-              <span class="text-sm text-green-500">Available</span>
-            </div>
-            <p class="mt-2 text-xs text-gray-500">Duration: 30 minutes</p>
+          <div>
+            <p>LOCATION</p>
+            <p>85 Royal Mint Street,</p>
+            <p>London, E1 8LG</p>
+            <p>United Kingdom</p>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- services section -->
+    <section class="py-20 mt-24">
+      <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="text-3xl font-bold text-black">Our Services</h2>
+          <p class="mt-2 text-lg">
+            These are the services we provide in this salon
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 mt-12 md:grid-cols-2 lg:grid-cols-4">
+          <!-- Service 1 -->
+          <div
+            class="relative overflow-hidden bg-white rounded-lg shadow-md group"
+          >
+            <img
+              src="./images/service1.jpg"
+              alt="Service 1"
+              class="object-cover w-full h-48 transition-transform group-hover:scale-105"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center transition-opacity bg-black opacity-0 group-hover:opacity-50"
+            >
+              <button
+                class="px-4 py-2 font-semibold text-black transition-colors duration-300 bg-white rounded-lg shadow-md hover:bg-pink-100"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="p-4">
+              <h3 class="mb-2 text-lg font-semibold text-pink-900">
+                Oil Massage
+              </h3>
+              <p class="mb-2 text-sm text-black">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
+                soluta?
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-lg font-bold">$30</span>
+                <span class="text-sm text-green-500">Available</span>
+              </div>
+              <p class="mt-2 text-xs text-black">Duration: 60 minutes</p>
+            </div>
+          </div>
+
+          <!-- Service 2 -->
+          <div
+            class="relative overflow-hidden bg-white rounded-lg shadow-md group"
+          >
+            <img
+              src="./images/service2.jpg"
+              alt="Service 2"
+              class="object-cover w-full h-48 transition-transform group-hover:scale-105"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center transition-opacity bg-black opacity-0 group-hover:opacity-50"
+            >
+              <button
+                class="px-4 py-2 font-semibold text-black transition-colors duration-300 bg-white rounded-lg shadow-md hover:bg-pink-100"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="p-4">
+              <h3 class="mb-2 text-lg font-semibold text-pink-900">
+                Facial Treatment
+              </h3>
+              <p class="mb-2 text-sm text-black">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
+                soluta?
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-lg font-bold">$50</span>
+                <span class="text-sm text-green-500">Available</span>
+              </div>
+              <p class="mt-2 text-xs text-black">Duration: 90 minutes</p>
+            </div>
+          </div>
+
+          <!-- Service 3 -->
+          <div
+            class="relative overflow-hidden bg-white rounded-lg shadow-md group"
+          >
+            <img
+              src="./images/service3.jpg"
+              alt="Service 3"
+              class="object-cover w-full h-48 transition-transform group-hover:scale-105"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center transition-opacity bg-black opacity-0 group-hover:opacity-50"
+            >
+              <button
+                class="px-4 py-2 font-semibold text-black transition-colors duration-300 bg-white rounded-lg shadow-md hover:bg-pink-100"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="p-4">
+              <h3 class="mb-2 text-lg font-semibold text-pink-900">
+                Haircut & Styling
+              </h3>
+              <p class="mb-2 text-sm text-black">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
+                soluta?
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-lg font-bold">$40</span>
+                <span class="text-sm text-green-500">Available</span>
+              </div>
+              <p class="mt-2 text-xs text-black">Duration: 45 minutes</p>
+            </div>
+          </div>
+
+          <!-- Service 4 -->
+          <div
+            class="relative overflow-hidden bg-white rounded-lg shadow-md group"
+          >
+            <img
+              src="./images/service4.jpg"
+              alt="Service 4"
+              class="object-cover w-full h-48 transition-transform group-hover:scale-105"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center transition-opacity bg-black opacity-0 group-hover:opacity-50"
+            >
+              <button
+                class="px-4 py-2 font-semibold text-black transition-colors duration-300 bg-white rounded-lg shadow-md hover:bg-pink-100"
+              >
+                Book Now
+              </button>
+            </div>
+            <div class="p-4">
+              <h3 class="mb-2 text-lg font-semibold text-pink-900">
+                Manicure & Pedicure
+              </h3>
+              <p class="mb-2 text-sm text-black">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
+                soluta?
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-lg font-bold">$25</span>
+                <span class="text-sm text-green-500">Available</span>
+              </div>
+              <p class="mt-2 text-xs text-black">Duration: 30 minutes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center mt-10">
+        <button class="px-5 py-3 bg-black">VIEW SERVICE MENU</button>
+      </div>
+    </section>
+
+    <!-- about us section  -->
+
+    <section class="bg-pink-50 about-us-section">
+      <div
+        class="container flex flex-col items-center h-screen mx-auto md:flex-row md:space-x-8"
+      >
+        <div class="relative h-full mt-8 md:w-1/2 md:mt-0">
+          <img
+            src="./images/about-us.jpg"
+            alt="About Us"
+            class="object-cover h-full"
+          />
+        </div>
+        <!-- Left side (content) -->
+        <div class="content md:w-1/2">
+          <h2 class="mb-4 text-3xl font-bold text-black">About Us</h2>
+          <p class="mb-6 text-black text-md">
+            We started as a small beauty studio in Islington, London. Our main
+            idea was to create the best beauty studio in the world. Can there be
+            compromises in the best studio in the world? Our answer is always
+            no, we care about the best quality, we hire the best specialists and
+            provide the best customer service. This approach allowed us to grow
+            and create awesome team that is passionate about everything we do.
+          </p>
+          <button
+            class="w-1/3 px-5 py-3 text-black border border-black hover:bg-black hover:text-white"
+          >
+            LEARN MORE
+          </button>
+        </div>
+        <!-- Right side (image) -->
+      </div>
+    </section>
 
     <!-- Book Now Section -->
     <section
@@ -655,131 +777,202 @@
       </div>
     </section>
 
-<!-- Testimonial Section -->
-<section class="py-20 bg-gray-800">
-    <div class="container mx-auto">
-      <h2 class="mb-12 text-4xl font-bold text-center">Testimonials</h2>
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-
-          <!-- Testimonial 1 -->
-          <div class="p-6 text-gray-800 bg-white rounded-lg shadow-lg swiper-slide" style="max-width: 320px; margin: auto;">
-            <img src="./images/testimonial1.jpg" alt="Testimonial 1" class="w-16 h-16 mx-auto mb-4 rounded-full">
-            <h3 class="text-xl font-semibold text-center">John Doe</h3>
-            <div class="flex justify-center mb-2">
-              <span class="text-yellow-500">★★★★★</span>
+    <!-- Testimonial Section -->
+    <section class="py-20 bg-pink-200">
+      <div class="container mx-auto">
+        <h2 class="mb-12 text-4xl font-bold text-center">Testimonials</h2>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <!-- Testimonial 1 -->
+            <div
+              class="p-6 text-pink-800 bg-white rounded-lg shadow-lg swiper-slide"
+              style="max-width: 320px; margin: auto"
+            >
+              <img
+                src="./images/testimonial1.jpg"
+                alt="Testimonial 1"
+                class="w-16 h-16 mx-auto mb-4 rounded-full"
+              />
+              <h3 class="text-xl font-semibold text-center">John Doe</h3>
+              <div class="flex justify-center mb-2">
+                <span class="text-yellow-500">★★★★★</span>
+              </div>
+              <p class="text-center">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+                quis lorem ut libero malesuada feugiat.
+              </p>
             </div>
-            <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem ut libero malesuada feugiat.</p>
-          </div>
 
-          <!-- Testimonial 2 -->
-          <div class="p-6 text-gray-800 bg-white rounded-lg shadow-lg swiper-slide" style="max-width: 320px; margin: auto;">
-            <img src="./images/testimonial2.jpg" alt="Testimonial 2" class="w-16 h-16 mx-auto mb-4 rounded-full">
-            <h3 class="text-xl font-semibold text-center">Jane Smith</h3>
-            <div class="flex justify-center mb-2">
-              <span class="text-yellow-500">★★★★☆</span>
+            <!-- Testimonial 2 -->
+            <div
+              class="p-6 text-pink-800 bg-white rounded-lg shadow-lg swiper-slide"
+              style="max-width: 320px; margin: auto"
+            >
+              <img
+                src="./images/testimonial2.jpg"
+                alt="Testimonial 2"
+                class="w-16 h-16 mx-auto mb-4 rounded-full"
+              />
+              <h3 class="text-xl font-semibold text-center">Jane Smith</h3>
+              <div class="flex justify-center mb-2">
+                <span class="text-yellow-500">★★★★☆</span>
+              </div>
+              <p class="text-center">
+                Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
+                dui. Pellentesque in ipsum id orci porta dapibus.
+              </p>
             </div>
-            <p class="text-center">Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Pellentesque in ipsum id orci porta dapibus.</p>
-          </div>
 
-          <!-- Testimonial 3 -->
-          <div class="p-6 text-gray-800 bg-white rounded-lg shadow-lg swiper-slide" style="max-width: 320px; margin: auto;">
-            <img src="./images/testimonial3.jpg" alt="Testimonial 3" class="w-16 h-16 mx-auto mb-4 rounded-full">
-            <h3 class="text-xl font-semibold text-center">Michael Johnson</h3>
-            <div class="flex justify-center mb-2">
-              <span class="text-yellow-500">★★★★★</span>
+            <!-- Testimonial 3 -->
+            <div
+              class="p-6 text-pink-800 bg-white rounded-lg shadow-lg swiper-slide"
+              style="max-width: 320px; margin: auto"
+            >
+              <img
+                src="./images/testimonial3.jpg"
+                alt="Testimonial 3"
+                class="w-16 h-16 mx-auto mb-4 rounded-full"
+              />
+              <h3 class="text-xl font-semibold text-center">Michael Johnson</h3>
+              <div class="flex justify-center mb-2">
+                <span class="text-yellow-500">★★★★★</span>
+              </div>
+              <p class="text-center">
+                Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+                Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+              </p>
             </div>
-            <p class="text-center">Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
-          </div>
 
-          <!-- Testimonial 4 -->
-          <div class="p-6 text-gray-800 bg-white rounded-lg shadow-lg swiper-slide" style="max-width: 320px; margin: auto;">
-            <img src="./images/testimonial4.jpg" alt="Testimonial 4" class="w-16 h-16 mx-auto mb-4 rounded-full">
-            <h3 class="text-xl font-semibold text-center">Emily Davis</h3>
-            <div class="flex justify-center mb-2">
-              <span class="text-yellow-500">★★★★☆</span>
+            <!-- Testimonial 4 -->
+            <div
+              class="p-6 text-pink-800 bg-white rounded-lg shadow-lg swiper-slide"
+              style="max-width: 320px; margin: auto"
+            >
+              <img
+                src="./images/testimonial4.jpg"
+                alt="Testimonial 4"
+                class="w-16 h-16 mx-auto mb-4 rounded-full"
+              />
+              <h3 class="text-xl font-semibold text-center">Emily Davis</h3>
+              <div class="flex justify-center mb-2">
+                <span class="text-yellow-500">★★★★☆</span>
+              </div>
+              <p class="text-center">
+                Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada
+                feugiat. Vestibulum ante ipsum primis in faucibus orci luctus
+                et.
+              </p>
             </div>
-            <p class="text-center">Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Vestibulum ante ipsum primis in faucibus orci luctus et.</p>
-          </div>
 
-          <!-- Testimonial 5 -->
-          <div class="p-6 text-gray-800 bg-white rounded-lg shadow-lg swiper-slide" style="max-width: 320px; margin: auto;">
-            <img src="./images/testimonial5.jpg" alt="Testimonial 5" class="w-16 h-16 mx-auto mb-4 rounded-full">
-            <h3 class="text-xl font-semibold text-center">Sophia Brown</h3>
-            <div class="flex justify-center mb-2">
-              <span class="text-yellow-500">★★★★★</span>
+            <!-- Testimonial 5 -->
+            <div
+              class="p-6 text-pink-800 bg-white rounded-lg shadow-lg swiper-slide"
+              style="max-width: 320px; margin: auto"
+            >
+              <img
+                src="./images/testimonial5.jpg"
+                alt="Testimonial 5"
+                class="w-16 h-16 mx-auto mb-4 rounded-full"
+              />
+              <h3 class="text-xl font-semibold text-center">Sophia Brown</h3>
+              <div class="flex justify-center mb-2">
+                <span class="text-yellow-500">★★★★★</span>
+              </div>
+              <p class="text-center">
+                Proin eget tortor risus. Nulla quis lorem ut libero malesuada
+                feugiat. Curabitur non nulla sit amet nisl tempus convallis quis
+                ac lectus.
+              </p>
             </div>
-            <p class="text-center">Proin eget tortor risus. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>
-          </div>
 
-          <!-- Testimonial 6 -->
-          <div class="p-6 text-gray-800 bg-white rounded-lg shadow-lg swiper-slide" style="max-width: 320px; margin: auto;">
-            <img src="./images/testimonial6.jpg" alt="Testimonial 6" class="w-16 h-16 mx-auto mb-4 rounded-full">
-            <h3 class="text-xl font-semibold text-center">James Wilson</h3>
-            <div class="flex justify-center mb-2">
-              <span class="text-yellow-500">★★★★☆</span>
+            <!-- Testimonial 6 -->
+            <div
+              class="p-6 text-pink-800 bg-white rounded-lg shadow-lg swiper-slide"
+              style="max-width: 320px; margin: auto"
+            >
+              <img
+                src="./images/testimonial6.jpg"
+                alt="Testimonial 6"
+                class="w-16 h-16 mx-auto mb-4 rounded-full"
+              />
+              <h3 class="text-xl font-semibold text-center">James Wilson</h3>
+              <div class="flex justify-center mb-2">
+                <span class="text-yellow-500">★★★★☆</span>
+              </div>
+              <p class="text-center">
+                Donec sollicitudin molestie malesuada. Cras ultricies ligula sed
+                magna dictum porta. Curabitur non nulla sit amet nisl tempus
+                convallis.
+              </p>
             </div>
-            <p class="text-center">Donec sollicitudin molestie malesuada. Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis.</p>
           </div>
-
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
         </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
+      </div>
+    </section>
 
-      </div>
-    </div>
-  </section>
+    <!-- galeery section  -->
+    <section class="py-20 bg-pink-200">
+      <h2 class="mb-12 text-4xl font-bold text-center">Gallery</h2>
+      <div class="album">
+        <div class="responsive-container-block bg">
+          <div class="responsive-container-block img-cont">
+            <img class="img" src="./images/gallery1.jpg" />
+            <img class="img" src="./images/gallery2.jpg" />
+            <img class="img img-last" src="./images/gallery3.jpg" />
+          </div>
+          <div class="responsive-container-block img-cont">
+            <img class="img img-big" src="./images/gallery4.jpg" />
 
+            <img class="img img-big img-last" src="./images/gallery5.jpg" />
+            <img class="img" src="./images/gallery8.jpg" />
+          </div>
+          <div class="responsive-container-block img-cont">
+            <img class="img" src="./images/gallery6.jpg" />
 
-  <!-- galeery section  -->
-  <section class="py-20 bg-gray-800">
-    <h2 class="mb-12 text-4xl font-bold text-center">Gallery</h2>
-  <div class="album">
-    <div class="responsive-container-block bg">
-      <div class="responsive-container-block img-cont">
-        <img class="img" src="./images/gallery1.jpg">
-        <img class="img" src="./images/gallery2.jpg">
-        <img class="img img-last" src="./images/gallery3.jpg">
+            <img class="img" src="./images/gallery7.jpg" />
+          </div>
+        </div>
       </div>
-      <div class="responsive-container-block img-cont">
-        <img class="img img-big" src="./images/gallery4.jpg">
-       
-        <img class="img img-big img-last" src="./images/gallery5.jpg">
-        <img class="img" src="./images/gallery8.jpg">
-      </div>
-      <div class="responsive-container-block img-cont">
-        <img class="img" src="./images/gallery6.jpg">
-        
-        <img class="img" src="./images/gallery7.jpg">
-      
-      </div>
-    </div>
-  </div>
-</section>
-  
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script>
-    var swiper = new Swiper('.swiper-container', {
-      loop: true,
-      slidesPerView: 1,
-      spaceBetween: 10,
-      breakpoints: {
-        640: {
-          slidesPerView: 1,
-          spaceBetween: 20,
+    </section>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      // JavaScript to handle toggling of navbar visibility
+
+      var swiper = new Swiper(".swiper-container", {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        breakpoints: {
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
         },
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 30,
-        },
-        1024: {
-          slidesPerView: 3,
-          spaceBetween: 40,
-        },
-      },
-   
-   
-    });
-  </script>
+      });
+
+      function Menu(e) {
+        let list = document.querySelector("ul");
+        e.name === "menu"
+          ? ((e.name = "close"),
+            list.classList.remove("top-[-400px]"),
+            list.classList.add("top-0"),
+            list.classList.add("opacity-100"))
+          : ((e.name = "menu"),
+            list.classList.add("top-[-400px]"),
+            list.classList.remove("top-0"),
+            list.classList.remove("opacity-100"));
+      }
+    </script>
   </body>
 </html>
